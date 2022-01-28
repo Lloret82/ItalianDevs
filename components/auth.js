@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 import styles from '../styles/Toolbar.module.css'
-function auth() {
+function Auth() {
       const { user } = useUser()
 
       return (
@@ -11,4 +11,4 @@ function auth() {
             </div>)
 }
 
-export default auth
+export default Auth

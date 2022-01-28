@@ -5,7 +5,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Auth from '../components/auth';
+import Auth from '../components/Auth';
 
 
 export default function Home({ posts }) {
