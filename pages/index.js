@@ -1,6 +1,6 @@
 // import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { Toolbar } from '../components/toolbar';
+import { Toolbar } from '../components/Toolbar';
 import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
