@@ -5,7 +5,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-// import Auth from '../components/Auth';
+import Auth from '../components/Auth';
 
 
 export default function Home({ posts }) {
@@ -36,7 +36,7 @@ export default function Home({ posts }) {
   return (
     <main className={styles.body}>
       <Toolbar />
-      {/* <Auth /> */}
+      <Auth />
 
       <div className={styles.main}>
         <h1 className={styles.h1}>Welcome To My Blog</h1>
