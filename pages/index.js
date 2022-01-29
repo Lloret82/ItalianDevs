@@ -33,7 +33,8 @@ export default function Home({ posts }) {
   }, [posts]);
 
   return (
-    <main className={styles.body}>
+    <main >
+      <div className={styles.body}>
       <Toolbar />
      
 
@@ -69,7 +70,7 @@ export default function Home({ posts }) {
       </div>
 
 
-
+      </div>
 
     </main>
   );
