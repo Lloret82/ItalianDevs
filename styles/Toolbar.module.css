@@ -1,6 +1,5 @@
 .main {
   margin: auto;
-  width: 750px;
   display: flex;
   max-width: 100%;
   color: #d7d7d7;
@@ -19,7 +18,6 @@
 
 .auth {
   margin: auto;
-  width: 750px;
   display: flex;
   max-width: 100%;
   color: #d7d7d7;
