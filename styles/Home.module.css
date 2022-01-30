@@ -19,7 +19,7 @@
   height: 100%;
   background-attachment: fixed;
   /* width: 140%; */
- 
+
   margin-right: -10px;
   background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
 }
@@ -89,10 +89,31 @@
   color: #666;
 }
 
-@media (device-height : 568px) 
-   and (device-width : 320px) 
-   and (-webkit-min-device-pixel-ratio: 2){
-     .body{
-       margin-right: -80px;
-     }
-   }
+.comment_link {
+  font-family: "Quicksand", sans-serif;
+  font-style: italic;
+  font-size: 5rem;
+  padding: 20px;
+  text-align: center;
+}
+
+.comment_link button {
+  background-color: #474747;
+  border: 1px solid black;
+  color: white;
+  padding: 20px 52px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 26px;
+  margin-top: 30px;
+}
+.comment_link button:hover {
+  transform: scale(1.1);
+}
+
+@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+  .body {
+    margin-right: -80px;
+  }
+}

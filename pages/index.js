@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 
 
+
 export default function Home({ posts }) {
   const router = useRouter();
 
@@ -35,39 +36,39 @@ export default function Home({ posts }) {
   return (
     <main >
       <div className={styles.body}>
-      <Toolbar />
-     
+        <Toolbar />
 
-      <div className={styles.main}>
-        <h1 className={styles.h1}>Welcome To My Blog</h1>
 
-        <h3 className={styles.h1}>Recent Posts:</h3>
+        <div className={styles.main}>
+          <h1 className={styles.h1}>Welcome To My Blog</h1>
 
-        <div className={styles.container}>
+          <h3 className={styles.h1}>Recent Posts:</h3>
 
-          {mappedPosts.length ? mappedPosts.map((p, index,) => (
-            <div onClick={() => router.push(`/post/${p.slug.current}`)} key={index} >
-              <div className={styles.container}>
-                <div className={styles.card}>
-                  <div className={styles.card__header}>
-                    <img src={p.mainImage} alt="card__image" className={styles.card__image} width="600" />
+          <div className={styles.container}>
+
+            {mappedPosts.length ? mappedPosts.map((p, index,) => (
+              <div onClick={() => router.push(`/post/${p.slug.current}`)} key={index} >
+                <div className={styles.container}>
+                  <div className={styles.card}>
+                    <div className={styles.card__header}>
+                      <img src={p.mainImage} alt="card__image" className={styles.card__image} width="600" />
+                    </div>
+                    <div className={styles.card__body}>
+                      <h4>{p.title}</h4>
+                      <p>{p.text}</p>
+                    </div>
+
                   </div>
-                  <div className={styles.card__body}>
-                    <h4>{p.title}</h4>
-                    <p>{p.text}</p>
-                  </div>
-
                 </div>
               </div>
-            </div>
 
 
 
 
 
-          )) : <>No Posts Yet</>}
+            )) : <>No Posts Yet</>}
+          </div>
         </div>
-      </div>
 
 
       </div>

@@ -1,11 +1,15 @@
 import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
-// import styles from '../../styles/Post.module.caa';
+import { groq } from '@sanity/groq-store'
 import BlockContent from '@sanity/block-content-to-react';
 import { Toolbar } from '../../components/Toolbar';
+import Comments from '../../components/Comment';
 
-export const Post = ({ title, body, image }) => {
+import sanityClient from "../../client";
+
+export const Post = ({ title, body, image, post }) => {
       const [imageUrl, setImageUrl] = useState('');
+
 
       useEffect(() => {
             const imgBuilder = imageUrlBuilder({
@@ -15,45 +19,51 @@ export const Post = ({ title, body, image }) => {
 
             setImageUrl(imgBuilder.image(image));
       }, [image]);
-      const client = require('@sanity/client')({
-            projectId: 'cxkian3k',
-            dataset: 'production',
-            apiVersion: '2021-03-25',
-            useCdn: true
-      })
 
       return (
-
-            <main >
+            <div>
                   <Toolbar />
-                  <article className="container shadow-lg  bg-gray rounded-lg">
-                        <header className="relative">
-                              <div className="absolute h-full w-full flex items-center justify-center p-8">
-                                    <div className="bg-white bg-opacity-75 rounded p-12">
-                                          <h1 className="cursive text-3xl lg:text-6xl mb-4">
-                                                {title}
-                                          </h1>
-                                          <p>{ }</p>
-                                          <div className="flex justify-center text-gray-800">
-                                                {/* {imageUrl && <img className={styles.mainImage} src={imageUrl} />} */}
-                                                {/* <p className="cursive flex items-center pl-2 text-2xl">
+                  <main className='flex mb-4'>
+
+                        <article className="container shadow-lg  bg-gray rounded-lg">
+                              <header className="relative">
+                                    <div className="absolute h-full w-full flex items-center justify-center p-8">
+                                          <div className="bg-white bg-opacity-75 rounded p-12">
+                                                <h1 className="cursive text-3xl lg:text-6xl mb-4">
+                                                      {title}
+                                                </h1>
+                                                <p>{ }</p>
+                                                <div className="flex justify-center text-gray-800">
+                                                      {/* {imageUrl && <img className={styles.mainImage} src={imageUrl} />} */}
+                                                      {/* <p className="cursive flex items-center pl-2 text-2xl">
                   {singlePost.name}
                 </p> */}
+                                                </div>
                                           </div>
                                     </div>
-                              </div>
-                              <img
-                                    src={imageUrl}
+                                    <img
+                                          src={imageUrl}
 
-                                    className="w-full object-cover rounded-t"
-                                    style={{ height: "400px" }}
-                              />
-                        </header>
-                        <div className="px-8 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
-                              <BlockContent blocks={body} projectId='cxkian3k' dataset='production' />
+                                          className="w-full object-cover rounded-t"
+                                          style={{ height: "400px" }}
+                                    />
+                              </header>
+                              <div className="px-8 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                                    <BlockContent blocks={body} projectId='cxkian3k' dataset='production' />
+                              </div>
+
+
+                        </article>
+                        <div>
+                              <h1 className='flex text-xl'>
+
+
+                              </h1>
                         </div>
-                  </article>
-            </main>
+                  </main>
+                  <Comments />
+            </div >
+
 
 
 
