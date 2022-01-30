@@ -4,12 +4,36 @@ import { groq } from '@sanity/groq-store'
 import BlockContent from '@sanity/block-content-to-react';
 import { Toolbar } from '../../components/Toolbar';
 import Comments from '../../components/Comment';
+import { useRouter } from 'next/router';
 
 import sanityClient from "../../client";
 
-export const Post = ({ title, body, image, post }) => {
-      const [imageUrl, setImageUrl] = useState('');
+export const Post = ({ slug, title, body, image }) => {
 
+      const router = useRouter();
+
+      const [imageUrl, setImageUrl] = useState('');
+      const [otherPosts, setOtherPosts] = useState([]);
+
+      useEffect(async () => {
+            let res = await sanityClient.fetch("*[_type=='post']")
+
+            if (!!res.length) {
+                  const imgBuilder = imageUrlBuilder({
+                        projectId: 'cxkian3k',
+                        dataset: 'production',
+                  });
+
+                  let filteredData = res.reduce((acc, curr) => {
+                        if (curr.slug.current !== slug) {
+                              return [...acc, { ...curr, mainImage: imgBuilder.image(curr.mainImage) }]
+                        }
+                        return acc
+                  }, [])
+
+                  setOtherPosts(filteredData)
+            }
+      }, [router.query.slug])
 
       useEffect(() => {
             const imgBuilder = imageUrlBuilder({
@@ -19,6 +43,7 @@ export const Post = ({ title, body, image, post }) => {
 
             setImageUrl(imgBuilder.image(image));
       }, [image]);
+
 
       return (
             <div>
@@ -33,12 +58,7 @@ export const Post = ({ title, body, image, post }) => {
                                                       {title}
                                                 </h1>
                                                 <p>{ }</p>
-                                                <div className="flex justify-center text-gray-800">
-                                                      {/* {imageUrl && <img className={styles.mainImage} src={imageUrl} />} */}
-                                                      {/* <p className="cursive flex items-center pl-2 text-2xl">
-                  {singlePost.name}
-                </p> */}
-                                                </div>
+
                                           </div>
                                     </div>
                                     <img
@@ -48,19 +68,24 @@ export const Post = ({ title, body, image, post }) => {
                                           style={{ height: "400px" }}
                                     />
                               </header>
-                              <div className="px-8 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                              <div className="px-8 lg:px-48 py-12 lg:py-20  lg:prose-xl max-w-full">
                                     <BlockContent blocks={body} projectId='cxkian3k' dataset='production' />
                               </div>
-
-
                         </article>
-                        <div>
-                              <h1 className='flex text-xl'>
+
+                        <div className='flex m-9 ' >
+                              {!!otherPosts.length && otherPosts.map((post, index) => {
+                                    return <div style={{ cursor: 'pointer' }} className='m-6  ' onClick={() => router.push(`/post/${post.slug.current}`)} key={index}>
 
 
-                              </h1>
-                        </div>
-                  </main>
+                                          <img
+                                                src={post.mainImage}
+                                                className=" flex w-32 flex items-center justify-center m-0  "
+                                          /><div className='  flex items-center justify-center border-4 '>{post.title}
+                                          </div></div>
+                              })}
+                        </div >
+                  </main >
                   <Comments />
             </div >
 
@@ -116,6 +141,7 @@ export const getServerSideProps = async pageContext => {
                         body: post.body,
                         title: post.title,
                         image: post.mainImage,
+                        slug: post.slug.current
                   }
             }
       }
