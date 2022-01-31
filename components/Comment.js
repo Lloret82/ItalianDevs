@@ -1,6 +1,7 @@
 import { DiscussionEmbed } from "disqus-react"
 import { useUser } from '@auth0/nextjs-auth0';
 import styles from '../styles/Home.module.css'
+import Link from "next/link";
 
 const Comments = (post) => {
       const disqusShortname = "ItalianDevs"
@@ -19,7 +20,7 @@ const Comments = (post) => {
                               config={disqusConfig}
                         />
                   </div>)}
-                  {!user && <h1 className={styles.comment_link}> Please <button><a href="/api/auth/login" type="link">Login</a></button>  to comment</h1>}
+                  {!user && <h1 className={styles.comment_link}> Please <button><Link href="/api/auth/login" type="link">Login</Link></button>  to comment</h1>}
             </div>
 
       )
