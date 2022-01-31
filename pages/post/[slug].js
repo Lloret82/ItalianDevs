@@ -5,6 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import { Toolbar } from '../../components/Toolbar';
 import Comments from '../../components/Comment';
 import { useRouter } from 'next/router';
+import Image from 'next/image'
 
 import sanityClient from "../../client";
 
@@ -35,7 +36,7 @@ export const Post = ({ slug, title, body, image }) => {
             }
       }, [router.query.slug])
 
-      useEffect(() => {
+      useEffect(async () => {
             const imgBuilder = imageUrlBuilder({
                   projectId: 'cxkian3k',
                   dataset: 'production',
@@ -74,6 +75,7 @@ export const Post = ({ slug, title, body, image }) => {
                         </article>
 
                         <div className='flex m-9 ' >
+                              {/* const src = {post.mainImage} */}
                               {!!otherPosts.length && otherPosts.map((post, index) => {
                                     return <div style={{ cursor: 'pointer' }} className='m-6  ' onClick={() => router.push(`/post/${post.slug.current}`)} key={index}>
 
@@ -81,7 +83,8 @@ export const Post = ({ slug, title, body, image }) => {
                                           <img
                                                 src={post.mainImage}
                                                 className=" flex w-32 flex items-center justify-center m-0  "
-                                          /><div className='  flex items-center justify-center border-4 '>{post.title}
+                                          />
+                                          <div className='  flex items-center justify-center border-4 '>{post.title}
                                           </div></div>
                               })}
                         </div >
