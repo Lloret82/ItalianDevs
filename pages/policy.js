@@ -8,7 +8,7 @@ export default function Policy() {
 
                   What Are Cookies
 
-                  As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.<br />
+                  As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or  break  certain elements of the sites functionality.<br />
 
                   How We Use Cookies
 
@@ -40,9 +40,9 @@ export default function Policy() {
 
                   More Information
 
-                  Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site.<br />
+                  Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren t sure whether you need or not it s usually safer to leave cookies enabled in case it does interact with one of the features you use on our site.<br />
 
-                  For more general information on cookies, please read "Cookies" article from the Privacy Policy Generator.<br />
+                  For more general information on cookies, please read Cookies article from the Privacy Policy Generator.<br />
 
                   However if you are still looking for more information then you can contact us through one of our preferred contact methods:
 
