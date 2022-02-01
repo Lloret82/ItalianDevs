@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import CookieConsent from "react-cookie-consent";
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4163596551575487"
-  crossorigin="anonymous"></script>
+  crossOrigin="anonymous"></script>
 
 
 export default function Home({ posts }) {
