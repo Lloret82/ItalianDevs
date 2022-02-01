@@ -74,10 +74,10 @@ export const Post = ({ slug, title, body, image }) => {
                               </div>
                         </article>
 
-                        <div className='flex m-9 ' >
+                        <div className='grid-cols-1 ' >
                               {/* const src = {post.mainImage} */}
                               {!!otherPosts.length && otherPosts.map((post, index) => {
-                                    return <div style={{ cursor: 'pointer' }} className='m-6  ' onClick={() => router.push(`/post/${post.slug.current}`)} key={index}>
+                                    return <div style={{ cursor: 'pointer' }} className='p-4  ' onClick={() => router.push(`/post/${post.slug.current}`)} key={index}>
 
 
                                           <img
