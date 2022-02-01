@@ -82,10 +82,10 @@ export default function Home({ posts }) {
         expires={150}
         enableDeclineButton
         onDecline={() => {
-          alert("nay!");
+          alert("That's Fine!!");
         }}
       >
-        This website uses cookies to enhance the user experience.{"<test> "}
+        This website uses cookies to enhance the user experience.{""}
         <span style={{ fontSize: "10px" }}>Accept or Decline</span>
         <div onClick={() => router.push('/policy')} >Read More</div>
       </CookieConsent>

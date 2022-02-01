@@ -6,6 +6,7 @@ import { Toolbar } from '../../components/Toolbar';
 import Comments from '../../components/Comment';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
+import CookieConsent from "react-cookie-consent";
 
 import sanityClient from "../../client";
 
@@ -88,6 +89,22 @@ export const Post = ({ slug, title, body, image }) => {
                                           </div></div>
                               })}
                         </div >
+                        <CookieConsent
+                              location="bottom"
+                              buttonText="Sure"
+                              cookieName="myAwesomeCookieName2"
+                              style={{ background: "#2B373B" }}
+                              buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                              expires={150}
+                              enableDeclineButton
+                              onDecline={() => {
+                                    alert("That's Fine!!");
+                              }}
+                        >
+                              This website uses cookies to enhance the user experience.{""}
+                              <span style={{ fontSize: "10px" }}>Accept or Decline</span>
+                              <div onClick={() => router.push('/policy')} >Read More</div>
+                        </CookieConsent>
                   </main >
                   <Comments />
             </div >
