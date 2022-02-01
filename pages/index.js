@@ -4,6 +4,7 @@ import { Toolbar } from '../components/Toolbar';
 import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import CookieConsent from "react-cookie-consent";
 
 
 
@@ -72,8 +73,24 @@ export default function Home({ posts }) {
 
 
       </div>
-
+      <CookieConsent
+        location="bottom"
+        buttonText="Sure"
+        cookieName="myAwesomeCookieName2"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        expires={150}
+        enableDeclineButton
+        onDecline={() => {
+          alert("nay!");
+        }}
+      >
+        This website uses cookies to enhance the user experience.{"<test> "}
+        <span style={{ fontSize: "10px" }}>Accept or Decline</span>
+        <div onClick={() => router.push('/policy')} >Read More</div>
+      </CookieConsent>
     </main>
+
   );
 }
 
