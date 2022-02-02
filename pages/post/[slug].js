@@ -10,6 +10,11 @@ import CookieConsent from "react-cookie-consent";
 
 import sanityClient from "../../client";
 
+<head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4163596551575487"
+            crossOrigin="anonymous"></script>
+</head>
+
 export const Post = ({ slug, title, body, image }) => {
 
       const router = useRouter();

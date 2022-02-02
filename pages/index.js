@@ -5,10 +5,10 @@ import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import CookieConsent from "react-cookie-consent";
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4163596551575487"
-  crossOrigin="anonymous"></script>
-
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4163596551575487"
+    crossOrigin="anonymous"></script>
+</head>
 
 export default function Home({ posts }) {
   const router = useRouter();
