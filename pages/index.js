@@ -6,8 +6,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import CookieConsent from "react-cookie-consent";
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4163596551575487"
-    crossOrigin="anonymous"></script>
+  <script
+    async
+    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+    crossOrigin="anonymous"
+  />
 </head>
 
 export default function Home({ posts }) {
@@ -36,7 +39,15 @@ export default function Home({ posts }) {
   }, [posts]);
 
   return (
+
     <main >
+      <head>
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+          crossOrigin="anonymous"
+        />
+      </head>
       <div className={styles.body}>
         <Toolbar />
 
